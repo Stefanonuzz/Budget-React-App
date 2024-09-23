@@ -17,4 +17,6 @@ function Amount() {
   );
 }
 
+// todo: rendere i dati effettivi, non fittizi
+
 export default Amount;

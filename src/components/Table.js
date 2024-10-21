@@ -1,4 +1,4 @@
-function Table({ expenses }) {
+function Table({ expenses, removeAtIndex }) {
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg col-span-2">
       <table className="w-full text-sm text-left rtl:text-right text-gray-200">
@@ -38,6 +38,7 @@ function Table({ expenses }) {
               <td className="px-6 py-4">{expense.amount}€</td>
               <td className="px-6 py-4">
                 <a
+                  onClick={() => removeAtIndex(index)}
                   href="#"
                   className="font-medium text-blue-500 hover:underline"
                 >

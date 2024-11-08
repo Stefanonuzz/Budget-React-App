@@ -1,7 +1,8 @@
 import React from "react";
 import Card from "./Card";
 
-function Modal() {
+function Modal({ editableExpense, isOpened, onChange, onSave }) {
+  if (!isOpened) return;
   return (
     <div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center backdrop-blur-md bg-black/30">
       <div className="w-1/3">
@@ -11,7 +12,9 @@ function Modal() {
             <input
               className="bg-gray-700 text-white rounded p-2 w-full"
               type="date"
-              value=""
+              name="date"
+              value={editableExpense.date}
+              onChange={onChange}
             />
           </div>
           <div className="mb-4">
@@ -19,7 +22,9 @@ function Modal() {
             <input
               className="bg-gray-700 text-white rounded p-2 w-full"
               type="text"
-              value=""
+              name="description"
+              value={editableExpense.description}
+              onChange={onChange}
             />
           </div>
           <div className="mb-4">
@@ -27,7 +32,9 @@ function Modal() {
             <input
               className="bg-gray-700 text-white rounded p-2 w-full"
               type="text"
-              value=""
+              name="category"
+              value={editableExpense.category}
+              onChange={onChange}
             />
           </div>
           <div className="mb-6">
@@ -35,13 +42,16 @@ function Modal() {
             <input
               className="bg-gray-700 text-white rounded p-2 w-full"
               type="number"
-              value=""
+              name="amount"
+              value={editableExpense.amount}
+              onChange={onChange}
             />
           </div>
           <div>
             <button
               type="submit"
-              className="bg-green-500 rounded p-2 w-full hover:bg-green-600"
+              className="bg-blue-500 rounded p-2 w-full hover:bg-blue-600"
+              onClick={onSave}
             >
               Applica modifiche
             </button>
